@@ -12,6 +12,12 @@ namespace MvcApi.Common
             string a = "";
         }
 
+
+        public void test2()
+        {
+ 
+        }
+
         
     }
 }
