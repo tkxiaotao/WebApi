@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YLApiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="YLApiModelStoreContainer">
+          <EntitySet Name="Account" EntityType="YLApiModel.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AppIdLog" EntityType="YLApiModel.Store.AppIdLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="District" EntityType="YLApiModel.Store.District" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Equipment" EntityType="YLApiModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FeedBack" EntityType="YLApiModel.Store.FeedBack" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Merchant" EntityType="YLApiModel.Store.Merchant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NodeList" EntityType="YLApiModel.Store.NodeList" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="createDate" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="expireDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AppIdLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="controller" Type="varchar" MaxLength="50" />
+          <Property Name="actionName" Type="varchar" MaxLength="50" />
+          <Property Name="addTime" Type="datetime" />
+          <Property Name="remark" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" MaxLength="50" />
+          <Property Name="parent" Type="varchar" MaxLength="50" />
+          <Property Name="parentname" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="shortname" Type="varchar" MaxLength="50" />
+          <Property Name="level" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="clientId" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="sn" Type="varchar" MaxLength="50" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" MaxLength="50" />
+          <Property Name="clientId" Type="varchar" MaxLength="50" />
+          <Property Name="user" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="contents" Type="varchar" MaxLength="50" />
+          <Property Name="contacts" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Merchant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="module" Type="varchar" MaxLength="50" />
+          <Property Name="contacts" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="100" />
+          <Property Name="createDate" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+          <Property Name="clientId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NodeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" MaxLength="50" />
+          <Property Name="parent" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="contacts" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="createDate" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YLApiModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="YLApiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="YLApiModel.Account" />
+          <EntitySet Name="AppIdLog" EntityType="YLApiModel.AppIdLog" />
+          <EntitySet Name="District" EntityType="YLApiModel.District" />
+          <EntitySet Name="Equipment" EntityType="YLApiModel.Equipment" />
+          <EntitySet Name="FeedBack" EntityType="YLApiModel.FeedBack" />
+          <EntitySet Name="Merchant" EntityType="YLApiModel.Merchant" />
+          <EntitySet Name="NodeList" EntityType="YLApiModel.NodeList" />
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="expireDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AppIdLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="controller" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="actionName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+          <Property Name="remark" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="parent" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="parentname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="shortname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="level" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="type" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="clientId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="type" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="sn" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="clientId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="user" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contents" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contacts" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Merchant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="module" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contacts" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="clientId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="NodeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="token" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="parent" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="type" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contacts" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createDate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YLApiModelStoreContainer" CdmEntityContainer="YLApiEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="YLApiModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppIdLog">
+            <EntityTypeMapping TypeName="YLApiModel.AppIdLog">
+              <MappingFragment StoreEntitySet="AppIdLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="controller" ColumnName="controller" />
+                <ScalarProperty Name="actionName" ColumnName="actionName" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District">
+            <EntityTypeMapping TypeName="YLApiModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="parent" ColumnName="parent" />
+                <ScalarProperty Name="parentname" ColumnName="parentname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="shortname" ColumnName="shortname" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="YLApiModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeedBack">
+            <EntityTypeMapping TypeName="YLApiModel.FeedBack">
+              <MappingFragment StoreEntitySet="FeedBack">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="contacts" ColumnName="contacts" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Merchant">
+            <EntityTypeMapping TypeName="YLApiModel.Merchant">
+              <MappingFragment StoreEntitySet="Merchant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="contacts" ColumnName="contacts" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NodeList">
+            <EntityTypeMapping TypeName="YLApiModel.NodeList">
+              <MappingFragment StoreEntitySet="NodeList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="appId" ColumnName="appId" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="parent" ColumnName="parent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="contacts" ColumnName="contacts" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
