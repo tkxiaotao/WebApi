@@ -89,7 +89,7 @@ namespace MvcApi.Controllers
                     //查询最后一条数据(最大的DataID)
                     try
                     {
-                        var maxId = db.IntelligentDataDH.Max(p => p.DataID);
+                        var maxId = db.IntelligentDataDH.Where(p=>p.IMEI.Contains(deviceid)).Max(p => p.DataID);
                         oldlist = db.IntelligentDataDH.FirstOrDefault(d => d.DataID == maxId);
                     }
                     catch (Exception)
