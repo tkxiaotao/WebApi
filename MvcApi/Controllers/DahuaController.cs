@@ -306,6 +306,9 @@ namespace MvcApi.Controllers
         [HttpPost]
         public string DahuaTest(JObject jData)
         {
+            //响应头开放(用于Web前端的XHR2调用)
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET,POST");
             //DHModel db = new DHModel();
             ReturnResult result = new ReturnResult();
             YLMDBDBEntities db = new YLMDBDBEntities();
